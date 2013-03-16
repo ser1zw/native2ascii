@@ -1,0 +1,40 @@
+<!-- -*- mode: html; coding: utf-8 -*- -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Native2Ascii</title>
+    <script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <link rel=stylesheet type="text/css" href="/css/main.css">
+  </head>
+  <body>
+    <h1>native2ascii - Native to ASCII Converter</h1>
+    <div id="main">
+      <p class="block">
+	Web-based native2ascii utility.
+	Converts texts with characters in any supported character encoding to one with ASCII and/or Unicode escapes, or visa versa.
+      </p>
+      <h2>Mode:</h2>
+      <div class="block">
+	<input type="radio" name="mode" value="native2ascii" checked>Native to Ascii
+	<input type="radio" name="mode" value="ascii2native">Ascii to Native
+      </div>
+
+      <h2>Input text:</h2>
+      <div class="block">
+	<textarea id="inputarea" name="texts" rows="5" cols="100"></textarea>
+      </div>
+      <div class="block">
+	<input type="button" value="Convert" onclick="onConvertButtonClick()">
+	<input type="button" value="Reset" onclick="onResetButtonClick()">
+      </div>
+
+      <h2>Result:</h2>
+      <div class="block">
+	<p id="results">
+	</p>
+      </div>
+    </div>
+  </body>
+</html>
+
