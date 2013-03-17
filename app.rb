@@ -8,16 +8,14 @@ end
 post '/api/convert' do
   src = params[:text]
   converted = nil
-  begin
-    if params[:mode] == 'native2ascii'
-      converted = src.to_ascii
-    else
-      converted = src.to_native
-    end
-    converted = converted.escapeHTML if params[:escape] == 'true'
-  rescue => e
-    puts e.message
+
+  if params[:mode] == 'native2ascii'
+    converted = src.to_ascii
+  else
+    converted = src.to_native
   end
+  converted = converted.escapeHTML if params[:escape] == 'true'
+
   content_type :json, :charset => 'utf-8'
   { text: converted }.to_json
 end

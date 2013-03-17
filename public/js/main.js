@@ -12,6 +12,9 @@ function convert(convText, convMode) {
 	},
 	success: function(data) {
 	    $("#results").html(data.text);
+	},
+	error: function(req, status, message) {
+	    $("#results").html(message);
 	}
     });
 }
