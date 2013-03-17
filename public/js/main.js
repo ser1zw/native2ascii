@@ -7,10 +7,11 @@ function convert(convText, convMode) {
 	dataType: "json",
 	data: {
 	    text: convText,
-	    mode: convMode
+	    mode: convMode,
+	    escape: true
 	},
 	success: function(data) {
-	    $("#results").html(data.text.replace("\n", "<br/>"));
+	    $("#results").html(data.text);
 	}
     });
 }

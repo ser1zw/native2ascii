@@ -1,4 +1,5 @@
 # -*- mode: ruby; coding: utf-8 -*-
+require 'cgi'
 
 class String
   def to_ascii
@@ -7,6 +8,10 @@ class String
 
   def to_native
     self.split('\u').map { |x| x == '' ? '' : x.to_i(16).chr('utf-8') }.join
+  end
+
+  def escapeHTML
+    CGI.escapeHTML(self).lines.map { |s| s.chomp + '<br/>' }.join
   end
 end
 
