@@ -9,8 +9,9 @@
     <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
   </head>
-  <body onload="init()">
+  <body>
     <a href="https://github.com/ser1zw/native2ascii"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
     <div id="header" class="container">
       <h1>native2ascii - Native to ASCII Converter</h1>
       <p class="lead">
@@ -22,20 +23,14 @@
       <p class="block">
 	Converts texts with characters in any supported character encoding to one with ASCII and/or Unicode escapes, or visa versa.
       </p>
-      <h2>Mode:</h2>
-      <div class="block">
-	<div id="convert-mode" class="btn-group" data-toggle="buttons-radio">
-	  <button type="button" id="native2ascii" class="btn" value="native2ascii">Native to Ascii</button>
-	  <button type="button" id="ascii2native" class="btn" value="ascii2native">Ascii to Native</button>
-	</div>
-      </div>
 
       <h2>Input text:</h2>
       <div class="block">
 	<div>
 	  <textarea id="inputarea" class="span8" rows="5" placeholder="Enter text to convert..."></textarea>
 	</div>
-	<input type="button" class="btn btn-large" value="Convert" onclick="onConvertButtonClick()">
+	<input type="button" class="btn btn-large" value="Native to Ascii" onclick="onConvertButtonClick('native2ascii')">
+	<input type="button" class="btn btn-large" value="Ascii to Native" onclick="onConvertButtonClick('ascii2native')">
 	<input type="button" class="btn btn-large" value="Reset" onclick="onResetButtonClick()">
       </div>
 

@@ -1,9 +1,5 @@
 // -*- mode: javascript; coding: utf-8 -*-
 
-function init() {
-    $("#native2ascii").button('toggle');
-}
-
 function convert(convText, convMode) {
     $.ajax({
 	type: "post",
@@ -23,9 +19,8 @@ function convert(convText, convMode) {
     });
 }
 
-function onConvertButtonClick() {
+function onConvertButtonClick(mode) {
     var text = $("#inputarea")[0].value;
-    var mode = $('#convert-mode .active').val();
     convert(text, mode);
 }
 
