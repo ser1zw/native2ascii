@@ -24,7 +24,7 @@ class AppTest < Test::Unit::TestCase
                    'bbb=\u3044\u3044\u3044 # comment 2',
                    '\u3046\u3046\u3046',
                    'ccc =  \u3048\u3048\u3048',
-                   'ddd=\u3c\u62\u72\u3e\u304a\u304a\u304a\u3c\u62\u72\u3e'].join("\n")
+                   'ddd=<br>\u304a\u304a\u304a<br>'].join("\n")
     @escaped_native_text = CGI.escapeHTML(@native_text).gsub("\n", '<br>')
     @escaped_ascii_text = CGI.escapeHTML(@ascii_text).gsub("\n", '<br>')
   end

@@ -10,9 +10,9 @@ post '/api/convert' do
   converted = nil
   begin
     if params[:mode] == 'native2ascii'
-      converted = Native2Ascii.to_ascii(src)
+      converted = src.to_ascii
     else
-      converted = Native2Ascii.to_native(src)
+      converted = src.to_native
     end
     converted = converted.escapeHTML if params[:escape] == 'true'
   rescue => e

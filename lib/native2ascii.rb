@@ -3,38 +3,27 @@ require 'cgi'
 
 class String
   def to_ascii
-    self.split(//).map { |x| '\u' + x.ord.to_s(16) }.join
+    self.split(//).map { |x| x.bytesize > 1 ? '\u' + x.ord.to_s(16) : x }.join
   end
 
   def to_native
-    self.split('\u').map { |x| x == '' ? '' : x.to_i(16).chr('utf-8') }.join
+    data = self.split(//)
+    native = ''
+    while c = data.shift
+      if c == "\\" and data[0].downcase == 'u'
+        # Multi byte charactor found
+        data.shift # Delete 'u'
+        native << data.shift(4).join.to_i(16).chr('utf-8')
+      else
+        # Single byte charactor
+        native << c
+      end
+    end
+    native
   end
 
   def escapeHTML
     CGI.escapeHTML(self).lines.map(&:chomp).join('<br>')
-  end
-end
-
-class Native2Ascii
-  def self.to_ascii(src)
-    convert(src) { |value| value.to_ascii }
-  end
-
-  def self.to_native(src)
-    convert(src) { |value| value.to_native }
-  end
-
-  private
-  def self.convert(src, &block)
-    converted = []
-    src.lines.each { |line|
-      key = ''
-      comment = ''
-      value = line.chomp.gsub(/([\w\d\s]+=\s*)/) { |s| key = s; '' }
-      value.gsub!(/(\s*#.+)/) { |s| comment = s; '' }
-      converted << key + block.call(value) + comment
-    }
-    converted.join("\n")
   end
 end
 
