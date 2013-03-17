@@ -11,7 +11,7 @@ class String
   end
 
   def escapeHTML
-    CGI.escapeHTML(self).lines.map { |s| s.chomp + '<br/>' }.join
+    CGI.escapeHTML(self).lines.map(&:chomp).join('<br>')
   end
 end
 

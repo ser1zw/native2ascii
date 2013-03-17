@@ -14,7 +14,7 @@ post '/api/convert' do
     else
       converted = Native2Ascii.to_native(src)
     end
-    converted = converted.escapeHTML if params[:escape]
+    converted = converted.escapeHTML if params[:escape] == 'true'
   rescue => e
     puts e.message
   end
