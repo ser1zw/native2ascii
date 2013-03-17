@@ -4,35 +4,42 @@
   <head>
     <title>Native2Ascii</title>
     <script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
   </head>
-  <body>
-    <h1>native2ascii - Native to ASCII Converter</h1>
-    <div id="main">
-      <p class="block">
+  <body onload="init()">
+    <div id="header" class="container">
+      <h1>native2ascii - Native to ASCII Converter</h1>
+      <p class="lead">
 	Web-based native2ascii utility.
+      </p>
+    </div>
+
+    <div id="main" class="container">
+      <p class="block">
 	Converts texts with characters in any supported character encoding to one with ASCII and/or Unicode escapes, or visa versa.
       </p>
       <h2>Mode:</h2>
       <div class="block">
-	<input type="radio" id="native2ascii"name="mode" value="native2ascii" checked>
-	<label for="native2ascii">Native to Ascii</label>
-	<input type="radio" id="ascii2native" name="mode" value="ascii2native">
-	<label for="ascii2native">Ascii to Native</label>
+	<div id="convert-mode" class="btn-group" data-toggle="buttons-radio">
+	  <button type="button" id="native2ascii" class="btn" value="native2ascii">Native to Ascii</button>
+	  <button type="button" id="ascii2native" class="btn" value="ascii2native">Ascii to Native</button>
+	</div>
       </div>
 
       <h2>Input text:</h2>
       <div class="block">
-	<textarea id="inputarea" name="texts" rows="5" cols="100"></textarea>
-      </div>
-      <div class="block">
-	<input type="button" value="Convert" onclick="onConvertButtonClick()">
-	<input type="button" value="Reset" onclick="onResetButtonClick()">
+	<div>
+	  <textarea id="inputarea" class="span8" rows="5" placeholder="Enter text to convert..."></textarea>
+	</div>
+	<input type="button" class="btn btn-large" value="Convert" onclick="onConvertButtonClick()">
+	<input type="button" class="btn btn-large" value="Reset" onclick="onResetButtonClick()">
       </div>
 
       <h2>Result:</h2>
-      <div class="block">
+      <div class="block" class="span8">
 	<p id="results">
 	</p>
       </div>

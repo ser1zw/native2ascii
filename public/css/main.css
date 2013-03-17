@@ -1,15 +1,8 @@
 /* -*- mode: css; coding: utf-8 -*- */
-body {  
-    text-align: center;
-    background-color: #fefefe;
-}
-#main {
-    width: 800px;
-    margin: 0 auto;
-    text-align: left;
-    position: relative;
-}
-.block {
-    margin-bottom: 20px;
+#header {
+    padding-bottom: 20px;
 }
 
+.block {
+    margin-bottom: 40px;
+}
