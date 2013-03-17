@@ -23,7 +23,7 @@ function onConvertButtonClick() {
 }
 
 function onResetButtonClick() {
-    $("#inputarea")[0].value = '';
-    $("#results")[0].value = '';
+    $("#inputarea")[0].value = "";
+    $("#results")[0].innerHTML = "";
 }
 
