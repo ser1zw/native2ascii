@@ -1,4 +1,4 @@
-// -*- mode: html; coding: utf-8 -*-
+// -*- mode: javascript; coding: utf-8 -*-
 
 function convert(convText, convMode) {
     $.ajax({
