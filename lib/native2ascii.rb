@@ -1,5 +1,4 @@
 # -*- mode: ruby; coding: utf-8 -*-
-require 'cgi'
 
 class String
   def to_ascii
@@ -20,10 +19,6 @@ class String
       end
     end
     native
-  end
-
-  def escapeHTML
-    CGI.escapeHTML(self).lines.map(&:chomp).join('<br>')
   end
 end
 

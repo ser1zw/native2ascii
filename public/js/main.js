@@ -7,11 +7,10 @@ function convert(convText, convMode) {
 	dataType: "json",
 	data: {
 	    text: convText,
-	    mode: convMode,
-	    escape: true
+	    mode: convMode
 	},
 	success: function(data) {
-	    $("#results").html(data.text);
+	    $("#results").text(data.text);
 	},
 	error: function(req, status, message) {
 	    $("#results").html(message);
@@ -35,7 +34,7 @@ $(document).ready(function() {
 	moviePath: "/ZeroClipboard-1.1.7/ZeroClipboard.swf"
     });
     clipboard.on("mousedown", function() {
-	var data = $("#results")[0].innerHTML;
+	var data = $("#results").text();
 	if (data) {
 	    clipboard.setText(data);
 	}

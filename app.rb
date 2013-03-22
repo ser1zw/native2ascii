@@ -14,7 +14,6 @@ post '/api/convert' do
   else
     converted = src.to_native
   end
-  converted = converted.escapeHTML if params[:escape] == 'true'
 
   content_type :json, :charset => 'utf-8'
   { text: converted }.to_json

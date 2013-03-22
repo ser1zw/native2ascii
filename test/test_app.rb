@@ -3,7 +3,6 @@ require 'sinatra'
 require 'test/unit'
 require 'rack/test'
 require 'json'
-require 'cgi'
 require './app'
 
 ENV['RACK_ENV'] = 'test'
@@ -25,8 +24,6 @@ class AppTest < Test::Unit::TestCase
                    '\u3046\u3046\u3046',
                    'ccc =  \u3048\u3048\u3048',
                    'ddd=<br>\u304a\u304a\u304a<br>'].join("\n")
-    @escaped_native_text = CGI.escapeHTML(@native_text).gsub("\n", '<br>')
-    @escaped_ascii_text = CGI.escapeHTML(@ascii_text).gsub("\n", '<br>')
   end
 
   def app
@@ -47,24 +44,10 @@ class AppTest < Test::Unit::TestCase
     assert_equal(@ascii_text, text)
   end
 
-  def test_convert_escape
-    post '/api/convert', mode: 'native2ascii', text: @native_text, escape: true
-    assert(last_response.ok?)
-    text = JSON.parse(last_response.body)['text']
-    assert_equal(@escaped_ascii_text, text)
-  end
-
   def test_convert_reverse
     post '/api/convert', mode: 'ascii2native', text: @ascii_text, escape: false
     assert(last_response.ok?)
     text = JSON.parse(last_response.body)['text']
     assert_equal(@native_text, text)
-  end
-
-  def test_convert_escape_reverse
-    post '/api/convert', mode: 'ascii2native', text: @ascii_text, escape: true
-    assert(last_response.ok?)
-    text = JSON.parse(last_response.body)['text']
-    assert_equal(@escaped_native_text, text)
   end
 end
