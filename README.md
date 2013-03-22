@@ -9,9 +9,9 @@ Deployed on Heroku: [http://native2ascii.herokuapp.com/](http://native2ascii.her
 
 ## Dependencies
 - [Ruby 2.0.0](http://www.ruby-lang.org/) and some gems (see Gemfile)
-- [JQuery 1.9.1](http://jquery.com/)
+- [jQuery 1.9.1](http://jquery.com/)
 - [Bootstrap 2.3.1](http://twitter.github.com/bootstrap/)
-- [ZeroClipboard 1.1.7](http://jonrohan.github.io/ZeroClipboard/)
+- [Zero Clipboard 1.1.7](http://jonrohan.github.io/ZeroClipboard/)
 
 ## License
 The MIT License
