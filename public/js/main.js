@@ -29,3 +29,16 @@ function onResetButtonClick() {
     $("#results")[0].innerHTML = "";
 }
 
+$(document).ready(function() {
+    var copyButton = $("#copy-button");
+    var clipboard = new ZeroClipboard(copyButton, {
+	moviePath: "/ZeroClipboard-1.1.7/ZeroClipboard.swf"
+    });
+    clipboard.on("mousedown", function() {
+	var data = $("#results")[0].innerHTML;
+	if (data) {
+	    clipboard.setText(data);
+	}
+    });
+});
+

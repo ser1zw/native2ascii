@@ -6,7 +6,6 @@
     <title>Native2Ascii</title>
     <script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script>
     <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
   </head>
@@ -35,9 +34,16 @@
 	<input type="button" class="btn btn-large" value="Reset" onclick="onResetButtonClick()">
       </div>
 
-      <h2>Result:</h2>
+      <h2>
+	Result:
+	<button id="copy-button" class="btn">
+	  <i class="icon-share"></i>
+	</button>
+      </h2>
       <pre class="block"><code id="results"></code></pre>
     </div>
   </body>
+  <script type="text/javascript" src="/ZeroClipboard-1.1.7/ZeroClipboard.min.js"></script>
+  <script type="text/javascript" src="/js/main.js"></script>
 </html>
 
